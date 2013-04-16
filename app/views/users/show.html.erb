@@ -1,0 +1,19 @@
+<div id="email">
+  <%= @user.email %>
+</div>
+
+<div id="company-list">
+  <% @user.companies.each do |company| %>
+    <div class="company">
+      <%= company.name %>
+      <% company.jobs.each do |job| %>
+        <div class="job">
+          <ul class="job-info">
+            <li><%= job.title %></li>
+            <li><%= "Last contacted: #{job.last_contacted}" %></li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
