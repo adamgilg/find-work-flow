@@ -2,18 +2,32 @@
   <%= @user.email %>
 </div>
 
-<div id="company-list">
-  <% @user.companies.each do |company| %>
-    <div class="company">
-      <%= company.name %>
-      <% company.jobs.each do |job| %>
-        <div class="job">
-          <ul class="job-info">
-            <li><%= job.title %></li>
-            <li><%= "Last contacted: #{job.last_contacted}" %></li>
-          </ul>
+<%= link_to "Add new company", new_company_path %>
+<!-- make job link live within each company -->
+<%= link_to "Add new job", new_job_path %>
+
+<div class="row">
+  <div class="large-5 columns section-container accordion" id="company-list" data-section="accordion">
+    <% @user.companies.each do |company| %>
+      <div class="section">
+        <div class="title" data-section-title>
+          <%= company.name %>
         </div>
-      <% end %>
+          <% company.jobs.each do |job| %>
+            <div class="content" data-section-content>
+              <ul class="panel job-info">
+                <li><%= "Job title: #{job.title}" %></li>
+                <li><%= "Last contacted: #{job.last_contacted}" %></li>
+              </ul>
+            </div>
+          <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="large-7 columns">
+    <div class="panel">
     </div>
-  <% end %>
+  </div>
 </div>
+

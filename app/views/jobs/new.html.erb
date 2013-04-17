@@ -1,0 +1,6 @@
+New Job
+<%= simple_form_for @job do |f| %>
+  <%= f.input :company_id, collection: current_user.companies %>
+  <%= f.input :title %>
+  <%= f.button :submit %>
+<% end %>
