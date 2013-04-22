@@ -30,19 +30,24 @@
     <% end %>
   </div>
 
-  <div class="large-7 columns">
+  <div class="job-container large-7 columns">
     <div class="job-info panel">
     </div>
   </div>
 </div>
 
 <%= render partial: "jobs/new_job_modal", locals: { new_job: Job.new } %>
+<%= render partial: "companies/new_company_modal", locals: { new_company: Company.new } %>
 
 <script>
   $(function() {
     $(".job-panel").on("ajax:success", function(event, data) {
       $(".job-info").html(data);
     });
+    $(".job-container").on("ajax:success", function(event, data) {
+      $(".job-info").html(data);
+    });
+    $("input.date_picker").datepicker()
   });
 </script>
 

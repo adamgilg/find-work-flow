@@ -27,7 +27,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     if @job.update_attributes(params[:job])
       flash[:notice] = "Note saved"
-      render nothing: true
+      render 'jobs/_job_info', layout: false
     else
       flash[:alert] = "Issue saving note"
       render nothing: true

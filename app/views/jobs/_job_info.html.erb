@@ -3,7 +3,12 @@
 </div>
 <ul>
   <li>Active:</li>
-  <li>Last contacted: </li>
+  <li>Last contacted: <%= @job.last_contacted ? @job.last_contacted : "no contact yet!" %>
+    <%= simple_form_for @job, url: job_path, method: :put, remote: true do |f| %>
+      <%= f.input :last_contacted, as: :string, class: "date_picker" %>
+      <%= f.button :submit, class: "small button" %>
+    <% end %>
+  </li>
   <li>Contacts
     <ol>
       <li>first</li>
@@ -15,6 +20,6 @@
 <div class="notes">
   <%= simple_form_for @job, url: job_path, method: :put, remote: true do |f| %>
     <%= f.input :notes, input_html: { value: @job.notes } %>
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "small button" %>
   <% end %>
 </div>

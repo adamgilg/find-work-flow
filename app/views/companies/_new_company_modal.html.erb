@@ -1,0 +1,10 @@
+<div id="new-company" class="reveal-modal">
+  <p>New Company</p>
+  <%= simple_form_for new_company do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.button :submit %>
+  <% end %>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
