@@ -4,5 +4,5 @@ FindWorkFlow::Application.routes.draw do
   resources :users
   resources :companies
   resources :jobs
-  root to: "users#index"
+  root to: "users#show"
 end

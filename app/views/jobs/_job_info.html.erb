@@ -1,0 +1,20 @@
+<div>
+  <%= @job.title %>
+</div>
+<ul>
+  <li>Active:</li>
+  <li>Last contacted: </li>
+  <li>Contacts
+    <ol>
+      <li>first</li>
+      <li>second</li>
+    </ol>
+  </li>
+</ul>
+
+<div class="notes">
+  <%= simple_form_for @job, url: job_path, method: :put, remote: true do |f| %>
+    <%= f.input :notes, input_html: { value: @job.notes } %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

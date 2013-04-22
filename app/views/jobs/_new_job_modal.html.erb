@@ -1,0 +1,9 @@
+<div id="new-job" class="reveal-modal">
+  <p>New Job</p>
+  <%= simple_form_for new_job do |f| %>
+    <%= f.input :company_id, collection: current_user.companies %>
+    <%= f.input :title %>
+    <%= f.button :submit %>
+  <% end %>
+  <a class="close-reveal-modal">&#215;</a>
+</div>

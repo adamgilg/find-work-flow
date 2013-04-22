@@ -13,4 +13,24 @@ class JobsController < ApplicationController
       redirect_to :back
     end
   end
+
+  def show
+    @job = Job.find(params[:id])
+    if request.xhr?
+      render 'jobs/_job_info', layout: false
+    else
+      # do something else?
+    end
+  end
+
+  def update
+    @job = Job.find(params[:id])
+    if @job.update_attributes(params[:job])
+      flash[:notice] = "Note saved"
+      render nothing: true
+    else
+      flash[:alert] = "Issue saving note"
+      render nothing: true
+    end
+  end
 end
